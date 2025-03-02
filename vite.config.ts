@@ -15,11 +15,11 @@ export default defineConfig({
           react: ['react', 'react-dom'],
           reactHotToast: ['react-hot-toast'],
           reactRouter: ['react-router', 'react-router-dom'],
-          solanaWeb3: ['@solana/web3.js'],
-          solanaWalletAdapters: [
-            '@solana/wallet-adapter-base',
-            '@solana/wallet-adapter-react',
-            '@solana/wallet-adapter-react-ui',
+          bbachainWeb3: ['@bbachain/web3.js'],
+          bbachainWalletAdapters: [
+            '@bbachain/wallet-adapter-base',
+            '@bbachain/wallet-adapter-react',
+            '@bbachain/wallet-adapter-react-ui',
           ],
           tabler: ['@tabler/icons-react'],
           tanstack: ['@tanstack/react-query'],

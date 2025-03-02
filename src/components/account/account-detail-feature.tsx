@@ -1,4 +1,4 @@
-import { PublicKey } from '@solana/web3.js'
+import { PublicKey } from '@bbachain/web3.js'
 import { useMemo } from 'react'
 import { useParams } from 'react-router'
 import { ExplorerLink } from '../cluster/cluster-ui'

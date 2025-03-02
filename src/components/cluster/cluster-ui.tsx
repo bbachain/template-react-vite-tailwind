@@ -1,5 +1,5 @@
-import { useConnection } from '@solana/wallet-adapter-react'
-import { Connection } from '@solana/web3.js'
+import { useConnection } from '@bbachain/wallet-adapter-react'
+import { Connection } from '@bbachain/web3.js'
 import { IconTrash } from '@tabler/icons-react'
 import { useQuery } from '@tanstack/react-query'
 import { ReactNode, useState } from 'react'
@@ -116,9 +116,8 @@ export function ClusterUiModal({ hideModal, show }: { hideModal: () => void; sho
         onChange={(e) => setNetwork(e.target.value as ClusterNetwork)}
       >
         <option value={undefined}>Select a network</option>
-        <option value={ClusterNetwork.Devnet}>Devnet</option>
-        <option value={ClusterNetwork.Testnet}>Testnet</option>
         <option value={ClusterNetwork.Mainnet}>Mainnet</option>
+        <option value={ClusterNetwork.Testnet}>Testnet</option>
       </select>
     </AppModal>
   )

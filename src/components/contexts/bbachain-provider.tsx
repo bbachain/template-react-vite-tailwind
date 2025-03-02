@@ -1,14 +1,14 @@
-import { WalletError } from '@solana/wallet-adapter-base'
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react'
-import { WalletModalProvider, WalletMultiButton } from '@solana/wallet-adapter-react-ui'
+import { WalletError } from '@bbachain/wallet-adapter-base'
+import { ConnectionProvider, WalletProvider } from '@bbachain/wallet-adapter-react'
+import { WalletModalProvider, WalletMultiButton } from '@bbachain/wallet-adapter-react-ui'
 import { ReactNode, useCallback, useMemo } from 'react'
 import { useCluster } from '../cluster/cluster-data-access'
 
-import('@solana/wallet-adapter-react-ui/styles.css')
+import('@bbachain/wallet-adapter-react-ui/styles.css')
 
 export const WalletButton = WalletMultiButton
 
-export function SolanaProvider({ children }: { children: ReactNode }) {
+export function BBAChainProvider({ children }: { children: ReactNode }) {
   const { cluster } = useCluster()
   const endpoint = useMemo(() => cluster.endpoint, [cluster])
   const onError = useCallback((error: WalletError) => {
