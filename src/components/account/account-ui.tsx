@@ -1,5 +1,5 @@
-import { useWallet } from '@solana/wallet-adapter-react'
-import { LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js'
+import { useWallet } from '@bbachain/wallet-adapter-react'
+import { BBA_DALTON_UNIT, PublicKey } from '@bbachain/web3.js'
 import { IconRefresh } from '@tabler/icons-react'
 import { useQueryClient } from '@tanstack/react-query'
 import { useMemo, useState } from 'react'
@@ -11,7 +11,7 @@ import {
   useGetSignatures,
   useGetTokenAccounts,
   useRequestAirdrop,
-  useTransferSol,
+  useTransferBBA,
 } from './account-data-access'
 
 export function AccountBalance({ address }: { address: PublicKey }) {
@@ -20,7 +20,7 @@ export function AccountBalance({ address }: { address: PublicKey }) {
   return (
     <div>
       <h1 className="text-5xl font-bold cursor-pointer" onClick={() => query.refetch()}>
-        {query.data ? <BalanceSol balance={query.data} /> : '...'} SOL
+        {query.data ? <BalanceComponent balance={query.data} /> : '...'} BBA
       </h1>
     </div>
   )
@@ -261,8 +261,8 @@ export function AccountTransactions({ address }: { address: PublicKey }) {
   )
 }
 
-function BalanceSol({ balance }: { balance: number }) {
-  return <span>{Math.round((balance / LAMPORTS_PER_SOL) * 100000) / 100000}</span>
+function BalanceComponent({ balance }: { balance: number }) {
+  return <span>{Math.round((balance / BBA_DALTON_UNIT) * 100000) / 100000}</span>
 }
 
 function ModalReceive({ hide, show, address }: { hide: () => void; show: boolean; address: PublicKey }) {
@@ -303,7 +303,7 @@ function ModalAirdrop({ hide, show, address }: { hide: () => void; show: boolean
 
 function ModalSend({ hide, show, address }: { hide: () => void; show: boolean; address: PublicKey }) {
   const wallet = useWallet()
-  const mutation = useTransferSol({ address })
+  const mutation = useTransferBBA({ address })
   const [destination, setDestination] = useState('')
   const [amount, setAmount] = useState('1')
 
